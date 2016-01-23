@@ -19,6 +19,7 @@ public class ThisApp extends Application {
 
         TwitterAuthConfig authConfig =
                 new TwitterAuthConfig(BuildConfig.TWITTER_KEY, BuildConfig.TWITTER_SECRET);
+
         Fabric.with(this, new Twitter(authConfig));
     }
 }
