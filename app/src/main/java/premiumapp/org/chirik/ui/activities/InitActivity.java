@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
+import premiumapp.org.chirik.R;
 import premiumapp.org.chirik.ui.ScreenContainer;
 import premiumapp.org.chirik.ui.ScreenContainerImpl;
+import timber.log.Timber;
 
 public abstract class InitActivity extends AppCompatActivity {
 
@@ -33,13 +37,27 @@ public abstract class InitActivity extends AppCompatActivity {
     abstract Integer getLayout();
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.general, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
             case android.R.id.home:
                 screenContainer.getDrawerLayout().openDrawer(GravityCompat.START);
                 return true;
+
+            case R.id.action_logout:
+                logout();
+                return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void logout() {
+        Timber.i("logging out");
     }
 }
