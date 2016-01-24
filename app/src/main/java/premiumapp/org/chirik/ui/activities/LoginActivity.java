@@ -31,13 +31,14 @@ public class LoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         loginButton.setCallback(new Callback<TwitterSession>() {
+
             @Override
             public void success(Result<TwitterSession> result) {
 
                 String userName = result.data.getUserName();
                 long userId = result.data.getUserId();
 
-                // Store user's data in the prefs
+                // Store user's data into prefs
                 PreferenceManager.getDefaultSharedPreferences(LoginActivity.this).edit()
                         .putString(Cv.KEY_USERNAME, userName).putLong(Cv.KEY_ID, userId).apply();
 
@@ -55,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
     private void startApp() {
         finish();
 
-        startActivity(new Intent(this, TopPostsActivity.class));
+        startActivity(new Intent(this, TopPicturesActivity.class));
     }
 
     @Override

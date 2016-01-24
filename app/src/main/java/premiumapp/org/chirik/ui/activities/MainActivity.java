@@ -18,20 +18,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if (TwitterCore.getInstance().getSessionManager().getActiveSession() == null) {
+
             startLogin();
         } else {
+
             startApp();
         }
 
     }
 
     private void startApp() {
+
         finish();
 
         startActivity(new Intent(this, TopPostsActivity.class));
     }
 
     private void startLogin() {
+
         finish();
 
         startActivity(new Intent(this, LoginActivity.class));

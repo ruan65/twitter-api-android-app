@@ -23,10 +23,16 @@
             android:name="io.fabric.ApiKey"
             android:value="fbe37b68e862267c6b0a5964701c07546d03e172"/>
 
-        <activity android:name=".ui.activities.LoginActivity"
+        <activity
+            android:name=".ui.activities.LoginActivity"
             android:label="Login"/>
-        <activity android:name=".ui.activities.TopPostsActivity"
-            android:label="TopPosts"/>
+        <activity
+            android:name=".ui.activities.TopPostsActivity"
+            android:label="Top posts"/>
+
+        <activity android:name=".ui.activities.TopPicturesActivity"
+            android:label="Top pictures">
+        </activity>
     </application>
 
 </manifest>
