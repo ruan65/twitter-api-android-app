@@ -1,5 +1,6 @@
 package premiumapp.org.chirik.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.GravityCompat;
@@ -8,6 +9,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+
+import com.twitter.sdk.android.core.TwitterCore;
 
 import butterknife.ButterKnife;
 import premiumapp.org.chirik.R;
@@ -58,6 +61,8 @@ public abstract class InitActivity extends AppCompatActivity {
     }
 
     private void logout() {
-        Timber.i("logging out");
+        TwitterCore.getInstance().logOut();
+        finish();
+        startActivity(new Intent(this, LoginActivity.class));
     }
 }

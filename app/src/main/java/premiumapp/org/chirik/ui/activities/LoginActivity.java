@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
     private void startApp() {
         finish();
 
-        startActivity(new Intent(this, TopPicturesActivity.class));
+        startActivity(new Intent(this, TopPostsActivity.class));
     }
 
     @Override
